@@ -152,3 +152,89 @@ padding:  2rem 2rem;
     transition: all ease-in-out .5s;
     color: var(--card_color);
 }
+
+
+
+/*############################ TOP COURSES SECTION #################################*/
+.top_couserseSect{
+    padding: 1rem 2rem;
+ 
+}
+
+.top_courses{
+    padding: 01rem 0;
+}
+
+.top_course{
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    border: 1px solid var(--text_color);
+    overflow: hidden;
+}
+
+.top_course .top_course_img{
+    width: 100%;
+    height: 12rem;
+
+}
+
+.top_course .top_course_img img{
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    display: block;
+}
+
+.about_course {
+    padding: 0  .5rem ;
+    text-align: left;
+}
+.about_course p, h2{
+    padding: .2rem 0;    
+}
+.about_course .cartegory{
+    font-size: 1rem;
+
+}
+.about_course .desc {
+    line-height: 1.7;
+
+}
+
+.about_course .duration {
+    color: var(--active_button);
+}
+
+.top_course .bottom {
+    font-size: 1rem;
+    padding: .5rem .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top_course .bottom p{
+    cursor: pointer;
+
+}
+.top_course .bottom p:hover {
+    text-decoration: underline;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.checked {
+    color: orange;
+}
+
+
+
+
