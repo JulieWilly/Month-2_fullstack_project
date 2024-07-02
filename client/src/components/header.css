@@ -59,8 +59,7 @@
     gap: 2rem;
 }
 
-
-.headerSect a button {
+button {
     padding: .5rem 1rem;
     border: none;
     border-radius: .3rem;
@@ -71,7 +70,7 @@
         font-style: normal;
 }
 
-.headerSect a button:hover{
+button:hover{
     background-color: var(--active_button);
 }
 
