@@ -97,3 +97,58 @@ hr{
 }
 
 
+/*#######################  Popular courses section. ###################################*/
+
+.popuparCourseSect {
+padding:  2rem 2rem;
+}
+
+.popuparCourse{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.popular_courses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 18rem;
+    margin-top: 6rem;
+    text-align: center;
+    padding: .4rem;
+    background-color: var(--card_color);
+    border-radius: .4rem;
+
+}
+
+.course_img {
+    width: 10rem;
+    height: 10rem;
+    margin-top: -30%;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+ .course_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.popular_courses h2{
+    margin-top: 1rem;
+}
+.popular_courses p {
+    margin-top: .4rem;
+}
+
+.popular_courses:hover{
+    background-color: var(--inactive_button);
+    transition: all ease-in-out .5s;
+    color: var(--card_color);
+}

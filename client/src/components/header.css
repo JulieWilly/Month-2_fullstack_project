@@ -8,6 +8,7 @@
     --text_color: #131316;
     --footer_color: #282B2D;
     --card_color: #E2E2E2;
+    --see_more:#86BFDC;
 }
 
 .headerSect {
@@ -74,7 +75,22 @@ button:hover{
     background-color: var(--active_button);
 }
 
+.see_more{
+    border: 2px solid var(--text_color);
+    width: 8rem;
+    display: flex;
+    flex-direction: row;
+    border-radius: .5rem;
+    padding: .5rem;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
 
+}
+.see_more:hover{
+    background-color: var(--see_more);
+    border-color: var(--see_more);
+}
 
 
 
