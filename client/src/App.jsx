@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CourseInfor from "./pages/CourseInfor/CourseInfor";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/degrees" element={<Degrees />} />
           <Route exact path="/about_us" element={<About />} />
-          <Route exact path="contact_us" element={<Contact />} />
+          <Route exact path="/contact_us" element={<Contact />} />
+          <Route exact path="/courseInfor" element={<CourseInfor />}/>
         </Routes>
       </BrowserRouter>
     </>

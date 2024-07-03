@@ -152,9 +152,7 @@ hr {
   padding: 1rem 2rem;
 }
 
-.top_courses {
-  padding: 01rem 0;
-}
+
 
 .top_course {
   width: 18rem;
@@ -163,17 +161,19 @@ hr {
   border-radius: 0.5rem;
   border: 1px solid var(--text_color);
   overflow: hidden;
+  padding: 0rem;
 }
 
 .top_course .top_course_img {
   width: 100%;
   height: 12rem;
+  padding: 0rem;
 }
 
 .top_course .top_course_img img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   display: block;
 }
 
