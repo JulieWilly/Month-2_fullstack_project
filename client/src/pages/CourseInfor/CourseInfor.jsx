@@ -1,16 +1,18 @@
 import "./courseInfor.css";
-import { GrNext } from "react-icons/gr";
+import TopNavigation from "../../components/TopNavigation.jsx";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { IoCheckmark } from "react-icons/io5";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import SectionTitle from '../../components/SectionTitle'
 import Tutors_ from "../../components/Tutors_";
 import tutors from "../../data/tutors";
-import TopCourses from "../Home/TopCourses";
+import Top_courses from "../../components/Top_Courses";
 import { IoMdStar } from "react-icons/io";
 import reviewerImg from '../../assets/curious.jpg'
 import reviwers from "../../data/reviewers.js"; 
  import Footer from '../../components/Footer.jsx'
+ import top_courses from '../../data/top_courses.js'
+
 const User_ratings = ({rv_img, rv_name, rv_desc, rv_rating}) => {
   return (
     <>
@@ -35,52 +37,56 @@ const CourseInfor = () => {
   return (
     <>
       <div className="degreeSect">
-        <div className="top_nav">
-          <h2>Home</h2>
-          <div className="next">
-            <GrNext className="link" />
-          </div>
-          <p className="course_path">Course name</p>
-        </div>
+        <TopNavigation />
 
-        <div className="course_infor">
-          <h1>Course Name</h1>
-          <h3>Course desc</h3>
+        <div className="course_desc">
+          <div className="course_infor">
+            <h1>Course Name</h1>
+            <h3>Course desc</h3>
 
-          <p>3 Months</p>
+            <p>3 Months</p>
 
-          <div className="price">
-            <MdOutlineAttachMoney className="icon" />
-            <h3>12</h3>
-          </div>
-
-          <div className="certificate">
-            <LiaCertificateSolid className="icon" />
-            <p>Earn a certificate upon completion </p>
-          </div>
-
-          <p className="content">Course Content</p>
-          <div className="course_content">
-            <div className="lesson">
-              <IoCheckmark />
-              <p>lesson 1</p>
+            <div className="price">
+              <MdOutlineAttachMoney className="icon" />
+              <h3>12/= </h3>
             </div>
-            <div className="lesson">
-              <IoCheckmark />
-              <p>lesson 1</p>
-            </div>{" "}
-            <div className="lesson">
-              <IoCheckmark />
-              <p>lesson 1</p>
-            </div>{" "}
-            <div className="lesson">
-              <IoCheckmark />
-              <p>lesson 1</p>
-            </div>{" "}
-            <div className="lesson">
-              <IoCheckmark />
-              <p>lesson 1</p>
+
+            <div className="certificate">
+              <LiaCertificateSolid className="icon" />
+              <p>Earn a certificate upon completion </p>
             </div>
+
+            <p className="content">Course Content</p>
+            <div className="course_content">
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>
+            </div>
+          </div>
+          <div className="start_course">
+            <div className="img">
+              <img src={reviewerImg} alt="" />
+            </div>
+
+            <button>Pay for access</button>
+            <button>Start Learning</button>
           </div>
         </div>
 
@@ -102,7 +108,15 @@ const CourseInfor = () => {
 
         <SectionTitle title={"Related courses"} />
         <div className="related_courses">
-          <TopCourses />
+          {top_courses.map((top_course, i) => (
+            <Top_courses
+              course_img={top_course.courseImg}
+              course_category={top_course.courseCartegory}
+              course_name={top_course.courseName}
+              course_desc={top_course.courseDesc}
+              course_duration={top_course.courseDuration}
+            />
+          ))}
         </div>
 
         <SectionTitle title={"Course ratings"} />

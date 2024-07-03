@@ -152,7 +152,11 @@ hr {
   padding: 1rem 2rem;
 }
 
-
+.top_courses{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
 .top_course {
   width: 18rem;
@@ -180,18 +184,23 @@ hr {
 .about_course {
   padding: 0 0.5rem;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
-.about_course p,
-h2 {
-  padding: 0.2rem 0;
-}
+
 .about_course .cartegory {
   font-size: 1rem;
+  padding: 0;
 }
 .about_course .desc {
   line-height: 1.7;
+  padding: 0;
 }
 
+.about_course h2{
+  padding: 0;
+  font-size: 1.5rem;
+}
 .about_course .duration {
   color: var(--active_button);
 }

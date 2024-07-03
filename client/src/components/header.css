@@ -164,3 +164,20 @@ gap: 1rem;
   background-color: var(--card_color);
 }
 
+
+
+/*######################## TOP NAVIGATION SECTION ################*/
+.top_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+
+.course_path {
+  cursor: pointer;
+}
+
+
+
