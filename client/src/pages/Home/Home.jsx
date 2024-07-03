@@ -6,6 +6,7 @@ import "./home.css";
 import TopCourses from "./TopCourses";
 import Tutors from "./Tutors";
 import Subscribe from "./Subscribe";
+import Footer from "../../components/Footer";
 const Home = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const Home = () => {
       <TopCourses />
       <Tutors />
       <Subscribe />
+      <Footer />
     </div>
   );
 };
