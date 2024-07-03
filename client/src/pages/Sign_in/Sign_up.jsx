@@ -1,7 +1,5 @@
-import './sign_up.css'
-import { FaGoogle } from "react-icons/fa";
-import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
-import { FaFacebookF } from "react-icons/fa";   
+import './login.css'
+import { Link } from 'react-router-dom';
 
 const Sign_up = () => {
     return (
@@ -23,11 +21,15 @@ const Sign_up = () => {
               <input type="text" placeholder="Password" />
             </div>
 
-            <button>Sign in </button>
+            
+              <button>Sign in </button>
+            
+           
+
             <div className="instructions">
               <p>
-                Already on  <span>Great tutors?</span> <a href="#">Sing in</a>
-             </p>
+                Already on <span>Great tutors?</span> <Link to={'/sign_in'}>Sing in</Link>
+              </p>
             </div>
           </form>
         </div>

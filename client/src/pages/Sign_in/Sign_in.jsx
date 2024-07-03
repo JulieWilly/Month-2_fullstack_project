@@ -2,6 +2,7 @@ import "./login.css";
 import { FaGoogle } from "react-icons/fa";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { FaFacebookF } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="sign_in_sect">
@@ -20,7 +21,7 @@ const Login = () => {
           <button>Sign in </button>
           <div className="instructions">
             <p>
-              New to <span>Great tutors?</span> <a href="#">Sing up</a>
+              New to <span>Great tutors?</span> <Link to={'/sign_up'}>Sing up</Link>
             </p>
             <h2>Or</h2>
             <p>Continue with </p>
