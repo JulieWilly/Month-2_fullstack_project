@@ -6,6 +6,8 @@ import { GiDuration } from "react-icons/gi";
 import { IoIosPricetag } from "react-icons/io";
 import degree_programs from "../../data/degree_programs";
 import ViewMore from '../../components/ViewMore'
+import AdverBanner from "./AdvertBanner";
+import Footer from '../../components/Footer'
 const Degree_programs_card = ({
   dg_img,
   dg_name,
@@ -33,7 +35,7 @@ const Degree_programs_card = ({
               <IoIosPricetag />
               <p className="red">{dg_prev_price}$</p>
               <span>Now</span>
-              <p>{dg_cur_price} $</p>
+              <b>{dg_cur_price} $</b>
             </div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -46,7 +48,6 @@ const Degree_programs_card = ({
             <button>Apply</button>
           </div>
         </div>
-      
     </>
   );
 };
@@ -110,12 +111,16 @@ const Degrees = () => {
                 dg_prev_price={programs.dgPrevPrice}
                 dg_period={programs.dgPeriod}
                 dg_cur_price={programs.dgCurPrice}
+                dg_rating={programs.dgRating}
               />
             ))}
           </div>
         </div>
-        <ViewMore/>
       </div>
+      
+      <ViewMore />
+      <AdverBanner/>
+      <Footer/>
     </div>
   );
 };
