@@ -21,7 +21,8 @@ const Login = () => {
           <button>Sign in </button>
           <div className="instructions">
             <p>
-              New to <span>Great tutors?</span> <Link to={'/sign_up'}>Sing up</Link>
+              New to <span>Great tutors?</span>{" "}
+              <Link to={"/sign_up"}>Sing up</Link>
             </p>
             <h2>Or</h2>
             <p>Continue with </p>

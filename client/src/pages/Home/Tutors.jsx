@@ -7,7 +7,6 @@ import Tutors_ from "../../components/Tutors_";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
 
-
 const Tutors = () => {
   return (
     <div className="tutorsSect">

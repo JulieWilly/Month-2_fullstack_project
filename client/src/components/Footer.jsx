@@ -4,10 +4,10 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import logoImg from '../assets/react.svg'
-import { Link } from 'react-router-dom'
+import logoImg from "../assets/react.svg";
+import { Link } from "react-router-dom";
 
-import NavLinks from '../components/NavLinks'
+import NavLinks from "../components/NavLinks";
 const Footer = () => {
   return (
     <>
@@ -40,7 +40,11 @@ const Footer = () => {
         </div>
       </div>
 
-    <p className="bottom_text"> Month 2 Online Learning project. Developed by Wilfred Muchire. All rights reserved.</p>
+      <p className="bottom_text">
+        {" "}
+        Month 2 Online Learning project. Developed by Wilfred Muchire. All
+        rights reserved.
+      </p>
     </>
   );
 };

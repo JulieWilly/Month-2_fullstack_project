@@ -1,100 +1,98 @@
 .degree_programs {
-    padding: 0 2rem;
+  padding: 0 2rem;
 }
 
 .degree_desc {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: .5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .dg_info {
-    width: 17em;
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: var(--card_color);
+  width: 17em;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--card_color);
 }
 
 .dg_info:hover {
-    background-color: var(--see_more);
+  background-color: var(--see_more);
 }
 
 .dg_programs {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around ;
-    margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem 0;
 }
 
 .degree {
-    width: 18rem;
-    border: 1px solid var(--inactive_button);
-    border-radius: 1rem;
-    padding: 0;
-    overflow: hidden;
+  width: 18rem;
+  border: 1px solid var(--inactive_button);
+  border-radius: 1rem;
+  padding: 0;
+  overflow: hidden;
 }
 
 .degree .dg_img {
-    height: 15rem;
-    
+  height: 15rem;
 }
 
 .degree .dg_img img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .about_dg {
-    margin: 0 .5rem
+  margin: 0 0.5rem;
 }
 
 .period,
 .dg_price {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.red{
-    color: red;
-    text-decoration: line-through;
+.red {
+  color: red;
+  text-decoration: line-through;
 }
-.dg_price b{
-    color: red;
+.dg_price b {
+  color: red;
 }
 
-.advert{
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 2rem 0;
+.advert {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 2rem 0;
 }
-.advert .advert_img{
-    height: 10rem;
-    width: 50%;
-
+.advert .advert_img {
+  height: 10rem;
+  width: 50%;
 }
 .advert .advert_img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .advert_desc {
-    background-color: var(--card_color);
-    text-align: center;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  background-color: var(--card_color);
+  text-align: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

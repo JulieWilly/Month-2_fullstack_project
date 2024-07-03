@@ -1,5 +1,4 @@
-import '../pages/Home/home.css'
-
+import "../pages/Home/home.css";
 
 const Top_courses = ({
   course_img,
@@ -37,6 +36,5 @@ const Top_courses = ({
     </>
   );
 };
-
 
 export default Top_courses;

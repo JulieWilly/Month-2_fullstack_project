@@ -4,7 +4,6 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const Tutors_ = ({
   tutors_img,
   tutors_name,

@@ -1,8 +1,8 @@
 import "./contact.css";
-import TopNavigation from '../../components/TopNavigation'
-import Footer from '../../components/Footer'
-import curious from '../../assets/curious.jpg'
-import SectionTitle from '../../components/SectionTitle'
+import TopNavigation from "../../components/TopNavigation";
+import Footer from "../../components/Footer";
+import curious from "../../assets/curious.jpg";
+import SectionTitle from "../../components/SectionTitle";
 import { GrFormNext } from "react-icons/gr";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md";

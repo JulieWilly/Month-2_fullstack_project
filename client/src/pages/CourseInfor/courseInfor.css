@@ -1,164 +1,156 @@
 :root {
-    --background-color: #eee1d0;
-    --inactive_button: #2e4364;
-    --active_button: #263560;
-    --text_color: #131316;
-    --footer_color: #282b2d;
-    --card_color: #e2e2e2;
-    --goals_color: #40e43d;
-    --secondary_color: #86bfdc;
+  --background-color: #eee1d0;
+  --inactive_button: #2e4364;
+  --active_button: #263560;
+  --text_color: #131316;
+  --footer_color: #282b2d;
+  --card_color: #e2e2e2;
+  --goals_color: #40e43d;
+  --secondary_color: #86bfdc;
 }
 
 .degreeSect {
-    padding:  1rem 2rem;
-    
+  padding: 1rem 2rem;
 }
-.course_infor{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    background-color: var(--card_color);
-    border-radius: .5rem;
-    padding: 0 1rem ;
-}
-
-.course_infor h1, h3, p,  div {
-    padding: .3rem 0;
+.course_infor {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  background-color: var(--card_color);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
 }
 
-.course_desc{
-    display: flex;
-    gap: 1rem;
-
-}
-.course_desc .start_course{
-    width: 50%;
-    background-color: var(--card_color);
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    padding-bottom: 1rem;
+.course_infor h1,
+h3,
+p,
+div {
+  padding: 0.3rem 0;
 }
 
+.course_desc {
+  display: flex;
+  gap: 1rem;
+}
+.course_desc .start_course {
+  width: 50%;
+  background-color: var(--card_color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1rem;
+}
 
 .img {
-    width: 100%;
-    height: 20rem;
-    overflow: hidden;
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
 }
 
-.start_course button{
-    margin-top: 1rem;
-    padding: 1em 6rem;
-    font-size: 1.2rem;
+.start_course button {
+  margin-top: 1rem;
+  padding: 1em 6rem;
+  font-size: 1.2rem;
 }
 .img img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-
-
 .price {
-    margin-top: 1rem;
-     padding: .1rem 0;
-     width: 5rem;
-     text-align: center;
-     border-radius: .5rem;
-     background-color: var(--secondary_color);
-     display: flex;
-     align-items: center;
-     gap: .5rem;
-     justify-content: center;
+  margin-top: 1rem;
+  padding: 0.1rem 0;
+  width: 5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: var(--secondary_color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
 .certificate {
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.icon{
-    font-size: 1.5rem;
-    display: grid;
-    place-content: center;
+.icon {
+  font-size: 1.5rem;
+  display: grid;
+  place-content: center;
 }
 
 .content {
-    text-decoration: underline;
-    font-size: 1.5rem;
+  text-decoration: underline;
+  font-size: 1.5rem;
 }
 
 .course_content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background-color:var(--background-color);
-    padding:.5rem;
-    flex-direction: row;
-    border-radius: .5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--background-color);
+  padding: 0.5rem;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 .lesson {
-    display: flex;
-        align-items: center;
-        gap: .5rem;
-        width: 30%;
-        flex-wrap: wrap;
-
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 30%;
+  flex-wrap: wrap;
 }
-.tutors{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.tutors {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 /* ###################### RELATED COURSES #####################################*/
 
-.related_courses{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+.related_courses {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 /*############################  COURSE RATINGS.  #######################################*/
 
-
-.gen_rating{
-    display: flex;
-    align-items: center;
-    padding: 0rem;
-    gap: .8rem;
-
+.gen_rating {
+  display: flex;
+  align-items: center;
+  padding: 0rem;
+  gap: 0.8rem;
 }
 
 .user_reviews {
-    background-color: var(--card_color);
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-    width: 70%;
+  background-color: var(--card_color);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  width: 70%;
 }
 
-.reviewer_img{
-    width: 5rem;
-    border-radius: 50%;
-        height: 5rem;
-    overflow: hidden;
-
+.reviewer_img {
+  width: 5rem;
+  border-radius: 50%;
+  height: 5rem;
+  overflow: hidden;
 }
 
 .reviewer_img img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
-
-

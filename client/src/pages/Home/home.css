@@ -152,7 +152,7 @@ hr {
   padding: 1rem 2rem;
 }
 
-.top_courses{
+.top_courses {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -197,7 +197,7 @@ hr {
   padding: 0;
 }
 
-.about_course h2{
+.about_course h2 {
   padding: 0;
   font-size: 1.5rem;
 }

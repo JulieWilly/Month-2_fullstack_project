@@ -18,17 +18,13 @@ const Header = () => {
       <NavLinks />
 
       <div className="signUp_signIn">
-        <a href="#">
-          <Link to={"/sign_in"}>
-            <button>Sing in </button>
-          </Link>
-        </a>
+        <Link to={"/sign_in"}>
+          <button>Sing in </button>
+        </Link>
 
-        <a href="#">
-          <Link to={"/sign_up"}>
-            <button>Sing up</button>
-          </Link>
-        </a>
+        <Link to={"/sign_up"}>
+          <button>Sing up</button>
+        </Link>
       </div>
     </div>
   );

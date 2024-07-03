@@ -3,7 +3,7 @@ import "./home.css";
 import ViewMore from "../../components/ViewMore";
 import SectionTitle from "../../components/SectionTitle";
 import top_courses from "../../data/top_courses";
-import Top_courses from '../../components/Top_Courses'
+import Top_courses from "../../components/Top_Courses";
 const TopCourses = () => {
   return (
     <div>

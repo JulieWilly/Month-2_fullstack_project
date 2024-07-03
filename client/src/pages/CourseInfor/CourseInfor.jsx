@@ -3,17 +3,17 @@ import TopNavigation from "../../components/TopNavigation.jsx";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { IoCheckmark } from "react-icons/io5";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import SectionTitle from '../../components/SectionTitle'
+import SectionTitle from "../../components/SectionTitle";
 import Tutors_ from "../../components/Tutors_";
 import tutors from "../../data/tutors";
 import Top_courses from "../../components/Top_Courses";
 import { IoMdStar } from "react-icons/io";
-import reviewerImg from '../../assets/curious.jpg'
-import reviwers from "../../data/reviewers.js"; 
- import Footer from '../../components/Footer.jsx'
- import top_courses from '../../data/top_courses.js'
+import reviewerImg from "../../assets/curious.jpg";
+import reviwers from "../../data/reviewers.js";
+import Footer from "../../components/Footer.jsx";
+import top_courses from "../../data/top_courses.js";
 
-const User_ratings = ({rv_img, rv_name, rv_desc, rv_rating}) => {
+const User_ratings = ({ rv_img, rv_name, rv_desc, rv_rating }) => {
   return (
     <>
       <div className="user_ratings">
@@ -30,8 +30,7 @@ const User_ratings = ({rv_img, rv_name, rv_desc, rv_rating}) => {
       </div>
     </>
   );
-}
-
+};
 
 const CourseInfor = () => {
   return (

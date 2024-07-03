@@ -7,7 +7,7 @@ import Contact from "./pages/Contact/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CourseInfor from "./pages/CourseInfor/CourseInfor";
 import Login from "./pages/Sign_in/Sign_in";
-import Sign_up from "./pages/Sign_up/Sign_up";
+import Sign_up from "./pages/Sign_in/Sign_up";
 function App() {
   return (
     <>
@@ -18,9 +18,9 @@ function App() {
           <Route exact path="/degrees" element={<Degrees />} />
           <Route exact path="/about_us" element={<About />} />
           <Route exact path="/contact_us" element={<Contact />} />
-          <Route exact path="/courseInfor" element={<CourseInfor />}/>
-          <Route exact path="/sign_in" element={<Login/>}/>
-          <Route exact path="/sign_up" element={<Sign_up/>}/>
+          <Route exact path="/courseInfor" element={<CourseInfor />} />
+          <Route exact path="/sign_in" element={<Login />} />
+          <Route exact path="/sign_up" element={<Sign_up />} />
         </Routes>
       </BrowserRouter>
     </>

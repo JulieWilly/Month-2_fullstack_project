@@ -37,7 +37,7 @@
   padding: 1rem;
 }
 
- nav ul {
+nav ul {
   display: flex;
   flex-direction: row;
   gap: 1.3rem;
@@ -49,7 +49,7 @@ nav ul li .link {
   font-size: 1.5rem;
   color: var(--text_color);
 }
- nav ul li .link:hover {
+nav ul li .link:hover {
   border-bottom: 2px solid var(--text_color);
 }
 
@@ -90,9 +90,8 @@ button:hover {
   border-color: var(--see_more);
 }
 
-
 /*################# BANNER SECTIONS ###################*/
-.banner_sect{
+.banner_sect {
   padding: 0;
   text-align: center;
   height: 10rem;
@@ -103,38 +102,33 @@ button:hover {
   gap: 1rem;
 }
 
-
-
 /*##############################     Footer section         #############################3#*/
 .footerSect {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: top;
   background-color: var(--footer_color);
   color: var(--card_color);
   padding: 2rem;
-
 }
 
 .logo_sect {
-display: flex;
-align-items: center;
-flex-direction: column;
-gap: 1rem;
-
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
 }
 
- .navigation_sect {
+.navigation_sect {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.social_links  {
+.social_links {
   text-align: center;
-
 }
 .accounts {
   display: flex;
@@ -154,18 +148,16 @@ gap: 1rem;
   border-radius: 50%;
 }
 
-.social_link:hover{
-  background-color: #86BFDC;
+.social_link:hover {
+  background-color: #86bfdc;
   color: var(--text_color);
 }
 
 .bottom_text {
   text-align: center;
-  padding: .7rem;
+  padding: 0.7rem;
   background-color: var(--card_color);
 }
-
-
 
 /*######################## TOP NAVIGATION SECTION ################*/
 .top_nav {
@@ -181,8 +173,6 @@ gap: 1rem;
 .course_path {
   cursor: pointer;
 }
-
-
 
 @media screen and (max-width: 500px) {
   .headerSect {
