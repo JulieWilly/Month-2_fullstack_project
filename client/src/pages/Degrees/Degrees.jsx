@@ -1,10 +1,55 @@
 import React from "react";
 import "./degrees.css";
-import programImg from '../../assets/curious.jpg'
 import Banner from "../../components/Banner";
-import SectionTitle from '../../components/SectionTitle'
+import SectionTitle from "../../components/SectionTitle";
 import { GiDuration } from "react-icons/gi";
 import { IoIosPricetag } from "react-icons/io";
+import degree_programs from "../../data/degree_programs";
+import ViewMore from '../../components/ViewMore'
+const Degree_programs_card = ({
+  dg_img,
+  dg_name,
+  dg_desc,
+  dg_period,
+  dg_prev_price,
+  dg_cur_price,
+  dg_rating,
+}) => {
+  return (
+    <>
+      
+        <div className="degree">
+          <div className="dg_img">
+            <img src={dg_img} alt="" />
+          </div>
+          <div className="about_dg">
+            <h2>{dg_name}</h2>
+            <h4>{dg_desc}</h4>
+            <div className="period">
+              <GiDuration />
+              <p>{dg_period} months</p>
+            </div>
+            <div className="dg_price">
+              <IoIosPricetag />
+              <p className="red">{dg_prev_price}$</p>
+              <span>Now</span>
+              <p>{dg_cur_price} $</p>
+            </div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>({dg_rating})
+          </div>
+          <div className="bottom">
+            <p>More Infor</p>
+            <button>Apply</button>
+          </div>
+        </div>
+      
+    </>
+  );
+};
 const Degrees = () => {
   return (
     <div>
@@ -57,37 +102,19 @@ const Degrees = () => {
         <div className="programs">
           <SectionTitle title={"Our Degree programs"} />
           <div className="dg_programs">
-            <div className="degree">
-              <div className="dg_img">
-                <img src={programImg} alt="" />
-              </div>
-              <div className="about_dg">
-                <h2>Degree program</h2>
-                <h4>program description</h4>
-                <div className="period">
-                  <GiDuration />
-                  <p>3 Months</p>
-                </div>
-
-                <div className="dg_price">
-                  <IoIosPricetag />
-                  <p className="red">200 $</p>
-                  <span>Now</span>
-                  <p>150$</p>
-                </div>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-              </div>
-              <div className="bottom">
-                <p>More Infor</p>
-                <button>Apply</button>
-              </div>
-            </div>
+            {degree_programs.map((programs, i) => (
+              <Degree_programs_card
+                dg_img={programs.dgImg}
+                dg_name={programs.dgName}
+                dg_desc={programs.dgDesc}
+                dg_prev_price={programs.dgPrevPrice}
+                dg_period={programs.dgPeriod}
+                dg_cur_price={programs.dgCurPrice}
+              />
+            ))}
           </div>
         </div>
+        <ViewMore/>
       </div>
     </div>
   );
