@@ -1,4 +1,5 @@
 import { GrNext } from "react-icons/gr";
+import './header.css'
 
 const TopNavigation = () => {
   return (

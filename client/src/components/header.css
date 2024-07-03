@@ -173,6 +173,8 @@ gap: 1rem;
   align-items: center;
   justify-content: left;
   gap: 1rem;
+  /* border: 2px solid red; */
+  padding: 0;
 }
 
 .course_path {
