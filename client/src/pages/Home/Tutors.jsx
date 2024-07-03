@@ -2,7 +2,7 @@ import React from "react";
 import "./home.css";
 import SectionTitle from "../../components/SectionTitle";
 import tutors from "../../data/tutors";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";

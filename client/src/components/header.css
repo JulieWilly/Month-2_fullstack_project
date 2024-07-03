@@ -1,106 +1,101 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Miltonian&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Miltonian&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 :root {
-    --background-color: #EEE1D0;
-    --inactive_button: #2E4364;
-    --active_button: #263560;
-    --text_color: #131316;
-    --footer_color: #282B2D;
-    --card_color: #E2E2E2;
-    --see_more:#86BFDC;
+  --background-color: #eee1d0;
+  --inactive_button: #2e4364;
+  --active_button: #263560;
+  --text_color: #131316;
+  --footer_color: #282b2d;
+  --card_color: #e2e2e2;
+  --see_more: #86bfdc;
 }
 
 .headerSect {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    background-color: #d9d9d9;
-    flex-wrap: wrap    ;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: #d9d9d9;
+  flex-wrap: wrap;
 }
 
-.headerSect .header-logo{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+.headerSect .header-logo {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
 .header-logo h1 {
-    font-family: "Miltonian", serif;
-        font-weight: 400;
-        font-style: normal;
+  font-family: "Miltonian", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.header-logo .logo_img{
-    border-radius: 50%;
-    padding: 1rem;
+.header-logo .logo_img {
+  border-radius: 50%;
+  padding: 1rem;
 }
 
 .headerSect nav ul {
-    display: flex;
-    flex-direction: row;
-    gap: 1.3rem;
-    list-style: none   ;
+  display: flex;
+  flex-direction: row;
+  gap: 1.3rem;
+  list-style: none;
 }
 
 .headerSect nav ul li .link {
-    text-decoration: none ;
-    font-size: 1.5rem;
-    color: var(--text_color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--text_color);
 }
-.headerSect nav ul li .link:hover{
-    border-bottom: 2px solid var(--text_color);
+.headerSect nav ul li .link:hover {
+  border-bottom: 2px solid var(--text_color);
 }
 
-.headerSect .signUp_signIn{
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+.headerSect .signUp_signIn {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 button {
-    padding: .5rem 1rem;
-    border: none;
-    border-radius: .3rem;
-    background-color: var(--inactive_button);
-    color: var(--card_color);
-    font-family: "Gentium Book Plus", serif;
-        font-weight: 400;
-        font-style: normal;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: var(--inactive_button);
+  color: var(--card_color);
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-button:hover{
-    background-color: var(--active_button);
+button:hover {
+  background-color: var(--active_button);
 }
 
-.see_more{
-    border: 2px solid var(--text_color);
-    width: 8rem;
+.see_more {
+  border: 2px solid var(--text_color);
+  width: 8rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.see_more:hover {
+  background-color: var(--see_more);
+  border-color: var(--see_more);
+}
+
+@media screen and (max-width: 500px) {
+  .headerSect {
     display: flex;
-    flex-direction: row;
-    border-radius: .5rem;
-    padding: .5rem;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-
-}
-.see_more:hover{
-    background-color: var(--see_more);
-    border-color: var(--see_more);
-}
-
-
-
-
-@media screen and (max-width:500px) {
-     .headerSect{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding-bottom: .5rem;
-     }
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
 }
