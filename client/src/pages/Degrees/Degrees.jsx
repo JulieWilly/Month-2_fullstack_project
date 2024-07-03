@@ -1,5 +1,6 @@
 import React from "react";
 import "./degrees.css";
+import programImg from '../../assets/curious.jpg'
 import Banner from "../../components/Banner";
 import SectionTitle from '../../components/SectionTitle'
 import { GiDuration } from "react-icons/gi";
@@ -58,24 +59,31 @@ const Degrees = () => {
           <div className="dg_programs">
             <div className="degree">
               <div className="dg_img">
-                <img src="" alt="" />
+                <img src={programImg} alt="" />
               </div>
-              <h2>Degree program</h2>
-              <h4>program description</h4>
-              <div className="duration">
-                <GiDuration />
-                <p>3 Months</p>
-              </div>
-
-              <div className="dg_price">
-                <IoIosPricetag />
-                <p>200 $</p>
-                <span>Now</span>
-                <p>150$</p>
-                <div className="bottom">
-                  <p>More Infor</p>
-                  <button>Apply</button>
+              <div className="about_dg">
+                <h2>Degree program</h2>
+                <h4>program description</h4>
+                <div className="period">
+                  <GiDuration />
+                  <p>3 Months</p>
                 </div>
+
+                <div className="dg_price">
+                  <IoIosPricetag />
+                  <p className="red">200 $</p>
+                  <span>Now</span>
+                  <p>150$</p>
+                </div>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <div className="bottom">
+                <p>More Infor</p>
+                <button>Apply</button>
               </div>
             </div>
           </div>
