@@ -4,12 +4,14 @@ import Banner from './Banner';
 import PopularCourses from './PopularCourses';
 import './home.css'
 import TopCourses from './TopCourses';
+import Tutors from './Tutors';
 const Home = () => {
     return <div>
         <Heros/>
         <Banner/>
         <PopularCourses/>
         <TopCourses/>
+        <Tutors/>
     </div>;
 }
 
