@@ -51,14 +51,14 @@ form button {
   width: 100%;
 }
 
-.Lesson_1 {
+.social_accounts .Lesson_1 {
   border: 1px solid var(--inactive_button);
   width: 100%;
   margin-top: 0.5rem;
   padding: 1rem;
   border-radius: 0.5rem;
 }
-.link {
+.social_accounts .link {
   font-size: 1.5rem;
 }
 
