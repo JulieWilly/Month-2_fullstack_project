@@ -3,6 +3,7 @@ import React from "react";
 import "./header.css";
 import logo from "../assets/react.svg";
 import NavLinks from "./NavLinks";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,16 +14,20 @@ const Header = () => {
         </div>
         <h1>Great tutors</h1>
       </div>
-     
-     <NavLinks/>
+
+      <NavLinks />
 
       <div className="signUp_signIn">
         <a href="#">
-          <button>Sing in </button>
+          <Link to={"/sign_in"}>
+            <button>Sing in </button>
+          </Link>
         </a>
 
         <a href="#">
-          <button>Sing up</button>
+          <Link to={"/sign_up"}>
+            <button>Sing up</button>
+          </Link>
         </a>
       </div>
     </div>

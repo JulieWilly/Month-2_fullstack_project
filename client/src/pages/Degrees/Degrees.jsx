@@ -116,11 +116,11 @@ const Degrees = () => {
             ))}
           </div>
         </div>
+        <ViewMore />
       </div>
-      
-      <ViewMore />
-      <AdverBanner/>
-      <Footer/>
+
+      <AdverBanner />
+      <Footer />
     </div>
   );
 };

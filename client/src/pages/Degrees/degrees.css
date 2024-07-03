@@ -28,7 +28,8 @@
     gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between ;
+    justify-content: space-around ;
+    margin: 1rem 0;
 }
 
 .degree {
@@ -87,7 +88,8 @@
     object-fit: cover;
     display: block;
 }
-.desc {
+.advert_desc {
+    background-color: var(--card_color);
     text-align: center;
     width: 50%;
     display: flex;
