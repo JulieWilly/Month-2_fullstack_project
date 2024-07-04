@@ -3,6 +3,7 @@ import React from "react";
 import "./header.css";
 import logo from "../assets/react.svg";
 import NavLinks from "./NavLinks";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -17,13 +18,13 @@ const Header = () => {
       <NavLinks />
 
       <div className="signUp_signIn">
-        <a href="#">
+        <Link to={"/sign_in"}>
           <button>Sing in </button>
-        </a>
+        </Link>
 
-        <a href="#">
+        <Link to={"/sign_up"}>
           <button>Sing up</button>
-        </a>
+        </Link>
       </div>
     </div>
   );

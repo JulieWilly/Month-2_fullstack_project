@@ -90,14 +90,16 @@ button:hover {
   border-color: var(--see_more);
 }
 
-@media screen and (max-width: 500px) {
-  .headerSect {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 0.5rem;
-  }
+/*################# BANNER SECTIONS ###################*/
+.banner_sect {
+  padding: 0;
+  text-align: center;
+  height: 10rem;
+  background-color: var(--inactive_button);
+  color: var(--card_color);
+  display: grid;
+  place-content: center;
+  gap: 1rem;
 }
 
 /*##############################     Footer section         #############################3#*/
@@ -163,8 +165,7 @@ button:hover {
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  gap: 1rem;
-  /* border: 2px solid red; */
+  gap: .5rem;
   padding: 0;
 }
 
@@ -172,6 +173,7 @@ button:hover {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* ######################################     BANNERS PAGES      ########################################*/
 
 .banner_sect {
@@ -186,4 +188,14 @@ button:hover {
 .banner_sect h2,
 p {
   padding: 1rem 0;
+=======
+@media screen and (max-width: 500px) {
+  .headerSect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+>>>>>>> a156704edc967506f158881428085e0488b8c912
 }
