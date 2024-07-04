@@ -13,8 +13,8 @@ const Header = () => {
         </div>
         <h1>Great tutors</h1>
       </div>
-     
-     <NavLinks/>
+
+      <NavLinks />
 
       <div className="signUp_signIn">
         <a href="#">

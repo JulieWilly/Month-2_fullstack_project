@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/degrees" element={<Degrees />} />
           <Route exact path="/about_us" element={<About />} />
           <Route exact path="/contact_us" element={<Contact />} />
-          <Route exact path="/courseInfor" element={<CourseInfor />}/>
+          <Route exact path="/courseInfor" element={<CourseInfor />} />
         </Routes>
       </BrowserRouter>
     </>
