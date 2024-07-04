@@ -19,7 +19,7 @@
   font-size: 2rem;
 }
 .inputs {
-  background-color: var(--card_color);
+  /* background-color: var(--card_color); */
   padding: 1rem 2rem;
 }
 
