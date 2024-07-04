@@ -6,8 +6,8 @@ const Heros = () => {
   return (
     <div>
       <div className="goals">
-        <p>Learn and get certified</p>
-        <p>Build your career</p>
+        <p className="_about">Learn and get certified</p>
+        <p className="_about">Build your career</p>
       </div>
       <div className="herosSect">
         <div className="heros_img">

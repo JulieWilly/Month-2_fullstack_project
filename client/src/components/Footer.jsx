@@ -19,7 +19,7 @@ const Footer = () => {
 
         <div className="navigation_sect">
           <h2>Navigation Links</h2>
-          <NavLinks />
+          <NavLinks className="nav_links" />
         </div>
         <div className="social_links">
           <h2>Social Links</h2>

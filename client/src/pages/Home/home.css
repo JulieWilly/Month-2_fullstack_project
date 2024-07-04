@@ -27,11 +27,10 @@
   gap: 10rem;
 }
 
-.goals p {
+.goals ._about {
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--goals_color);
-  margin: 0.5rem 0;
 }
 
 .heros_message {
