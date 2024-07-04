@@ -19,8 +19,11 @@ function App() {
           <Route exact path="/about_us" element={<About />} />
           <Route exact path="/contact_us" element={<Contact />} />
           <Route exact path="/courseInfor" element={<CourseInfor />} />
+<<<<<<< HEAD
+=======
           <Route exact path="/sign_in" element={<Login />} />
           <Route exact path="/sign_up" element={<Sign_up />} />
+>>>>>>> a156704edc967506f158881428085e0488b8c912
         </Routes>
       </BrowserRouter>
     </>

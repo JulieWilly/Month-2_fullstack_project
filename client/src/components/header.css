@@ -173,6 +173,22 @@ button:hover {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+/* ######################################     BANNERS PAGES      ########################################*/
+
+.banner_sect {
+  height: max-content;
+  background-color: var(--footer_color);
+  color: var(--card_color);
+  text-align: center;
+  height: 10rem;
+  display: grid;
+  place-content: center;
+}
+.banner_sect h2,
+p {
+  padding: 1rem 0;
+=======
 @media screen and (max-width: 500px) {
   .headerSect {
     display: flex;
@@ -181,4 +197,5 @@ button:hover {
     gap: 1rem;
     padding-bottom: 0.5rem;
   }
+>>>>>>> a156704edc967506f158881428085e0488b8c912
 }
