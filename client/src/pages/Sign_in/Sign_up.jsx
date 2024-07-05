@@ -1,10 +1,11 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { useFormik } from "formik";
+import axios from "axios";
 
 import * as Yup from "yup";
 
-const Sign_up = () => {
+const Sign_up = (values) => {
   const formValidations = Yup.object({
     firstName: Yup.string()
       .required("First name is required.")
@@ -22,6 +23,36 @@ const Sign_up = () => {
       .integer("Password must be a number")
       .required("Password is reqired."),
   });
+
+  const handleSubmit = async (formstate) => {
+    const createUser = await axios
+      .post(
+        "http://localhost:3001/greatTutor.org/login",
+        values,
+
+        {
+          data: JSON.stringify(formstate),
+        }
+        // {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json;  charset=UTF-8",
+        //   },
+        //   body: JSON.stringify(formstate),
+        // }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log(createUser);
+    console.log(formstate);
+
+    alert("successfl");
+  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -29,9 +60,7 @@ const Sign_up = () => {
       email: "",
       password: "",
     },
-    onSubmit: (formState) => {
-      console.log(formState);
-    },
+    onSubmit: handleSubmit,
     validationSchema: formValidations,
   });
   return (
@@ -49,7 +78,9 @@ const Sign_up = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.firstName && formik.errors.firstName && <p> {formik.errors.firstName}</p>}
+            {formik.touched.firstName && formik.errors.firstName && (
+              <p> {formik.errors.firstName}</p>
+            )}
           </div>
           <div className="login">
             <input
@@ -60,7 +91,9 @@ const Sign_up = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            { formik.touched.lastName && formik.errors.lastName && <p>{formik.errors.lastName}</p>}
+            {formik.touched.lastName && formik.errors.lastName && (
+              <p>{formik.errors.lastName}</p>
+            )}
           </div>
           <div className="login">
             <input
@@ -71,7 +104,9 @@ const Sign_up = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            { formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
+            {formik.touched.email && formik.errors.email && (
+              <p>{formik.errors.email}</p>
+            )}
           </div>
           <div className="login">
             <input
@@ -81,13 +116,14 @@ const Sign_up = () => {
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-
             />
 
-            {formik.touched.password && formik.errors.password && <p>{formik.errors.password}</p>}
+            {formik.touched.password && formik.errors.password && (
+              <p>{formik.errors.password}</p>
+            )}
           </div>
 
-          <button>Sign in </button>
+          <button type="submit">Sign in </button>
 
           <div className="instructions">
             <p>

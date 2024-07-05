@@ -12,9 +12,9 @@ router.post('/login',async (req, res) => {
     try{
         const {firstName,lastName, email, password} = req.body
 
-        if (!firstName || !lastName || !email || !password) {
-            res.send("Please provide all the fields required.")
-        }
+        // if (!firstName || !lastName || !email || !password) {
+        //     res.send("Please provide all the fields required.")
+        // }
         const createUser = await prisma.user.create({
             data:{
                 firstName,lastName,email,password
