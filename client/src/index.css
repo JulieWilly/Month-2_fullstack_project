@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--background-color);
+}
+
+:root {
+  --background-color: #eee1d0;
+  --inactive_button: #2e4364;
+  --active_button: #263560;
+  --text_color: #131316;
+  --footer_color: #282b2d;
+  --card_color: #e2e2e2;
+}
