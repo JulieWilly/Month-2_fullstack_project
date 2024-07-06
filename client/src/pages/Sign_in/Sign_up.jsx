@@ -5,10 +5,12 @@ import axios, { AxiosError } from "axios";
 
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
+import { API_URL } from "../../utils/config";
 
 const Sign_up = () => {
 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState()
   const navigate = useNavigate()
 
   const formValidations = Yup.object({
@@ -30,25 +32,29 @@ const Sign_up = () => {
       .min(4, "Password should not be less than 4 numbers")
   });
 
-
+//  const url = import.meta.env.VITE_URL_BASE;
  const handleSubmit = async (values) => {
       try{
         setLoading(true)
           const createNewUser = await axios
-            .post("http://localhost:3000/learn/register",{
+            .post(`${API_URL}/learn/register`, {
               firstName: values.firstName,
               lastName: values.lastName,
               email: values.email,
-              password: parseInt(values.password)
-            })  
+              password:(values.password)
+            })
             .catch((error) => console.log(error));
-            // setLoading(true)
                if (createNewUser.status === 200) {
                  alert("success");
                  navigate ("/sign_in")
+               } else {
+                setError(createNewUser.data)
                }
       }catch(err){
         console.log(err)
+        setError(err.message)
+      }finally{
+        setLoading(true)
       }
   }
 
@@ -131,6 +137,7 @@ const Sign_up = () => {
               <Link to={"/sign_in"}>Sing in</Link>
             </p>
           </div>
+          {error && <p>{error}</p>}
         </form>
       </div>
     </div>

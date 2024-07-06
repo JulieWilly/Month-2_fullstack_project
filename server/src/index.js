@@ -11,6 +11,7 @@ const great_tutor = express();
 great_tutor.use(cors({
     origin:" http://localhost:5173",
     methods:["GET", "POST", "DELETE", "PATCH"],
+    credentials:true
     //  allowedHeaders: ["Content-Type", "Authorization"]
 }))
 great_tutor.use(bodyParser.json())

@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 import bcrypt, { compareSync } from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 
 export const createNewUser = async (req, res) => {
@@ -39,7 +40,21 @@ export const loginUser = async (req, res) => {
             // compate password here to login the user.
             const matchPwd = bcrypt.compareSync(password, user.password)
             if(matchPwd === true) {
-                res.json("Logging in successful")
+
+                // define what to include and what not to include in a payload that will be stored in the token
+                const payload = {
+                    id: user.id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email:user.email
+                }
+
+                // generate a json web token for authorization purposes
+                const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {expiresIn: "10m"})
+
+                // attach the toke to a cookie. This is to a void manually adding the token to functions.
+                res.cookie("access_token",token)
+                res.status(200).json({success:true, data:payload})
             } else {
                 res.status(400).json({success:false, message: "Wrong user credentials."})
             }
