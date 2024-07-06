@@ -17,9 +17,9 @@ datasource db {
 model User {
   id String @id @default(uuid()) 
   firstName String @map("first_name") @unique
-  lastName String @map("last_name") @unique
+  lastName String @map("last_name") 
   email String @map("email") @unique
-  password Int @map("password")
+  password String @map("password")
 
   @@map("students_tb")
 }

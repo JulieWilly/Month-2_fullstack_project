@@ -4,7 +4,7 @@ CREATE TABLE "students_tb" (
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "password" INTEGER NOT NULL,
+    "password" VARCHAR NOT NULL,
 
     CONSTRAINT "students_tb_pkey" PRIMARY KEY ("id")
 );
