@@ -1,11 +1,12 @@
 import "./login.css";
-import { json, Link } from "react-router-dom";
+import { json, Link, Navigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
 
 import * as Yup from "yup";
+import { useEffect } from "react";
 
-const Sign_up = (values) => {
+const Sign_up = () => {
   const formValidations = Yup.object({
     firstName: Yup.string()
       .required("First name is required.")
@@ -21,38 +22,34 @@ const Sign_up = (values) => {
     password: Yup.number()
       .typeError("Password must be a number")
       .integer("Password must be a number")
-      .required("Password is reqired."),
+      .required("Password is reqired.")
+      .min(4, "Password should not be less than 4 numbers")
   });
 
-  const handleSubmit = async (formstate) => {
-    const createUser = await axios
-      .post(
-        "http://localhost:3001/greatTutor.org/login",
-        values,
 
-        {
-          data: JSON.stringify(formstate),
-        }
-        // {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json;  charset=UTF-8",
-        //   },
-        //   body: JSON.stringify(formstate),
-        // }
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+ const handleSubmit = async (values) => {
+      try{
+          const createNewUser = await axios
+            .post("http://localhost:3000/learn/register",{
+              firstName: values.firstName,
+              lastName: values.lastName,
+              email: values.email,
+              password: parseInt(values.password)
+            })
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
 
-    console.log(createUser);
-    console.log(formstate);
+          console.log(createNewUser)
+      }catch(err){
+        console.log(err)
+      }
 
-    alert("successfl");
-  };
+  }
+
+  useEffect(()=> {
+handleSubmit()
+  },[])
+
   const formik = useFormik({
     initialValues: {
       firstName: "",

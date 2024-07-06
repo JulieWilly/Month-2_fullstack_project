@@ -1,30 +1,29 @@
 import express from 'express'
 import userRouter from './routers/users.routers.js'
 import cors from 'cors'
+import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 
 
-config();
+config()
 const great_tutor = express();
 
-
 great_tutor.use(cors({
-    origin:'http://localhost:5173',
-    methods:["GET", "POST", "DELETE", "PATCH", "PUT"],
-     allowedHeaders: ['Content-Type', 'Authorization']
+    origin:" http://localhost:5173",
+    methods:["GET", "POST", "DELETE", "PATCH"],
+    //  allowedHeaders: ["Content-Type", "Authorization"]
 }))
+great_tutor.use(bodyParser.json())
 
-great_tutor.use(express.urlencoded( {extended:true }))
-
-
+great_tutor.use(express.urlencoded({ extended:true }))
 
 great_tutor.use(express.json())
 
+great_tutor.use("/learn", userRouter)
 
 
-great_tutor.use("/greatTutor.org", userRouter)
-
-great_tutor.listen(3001, () => {
+great_tutor.listen(3000, () => {
+    console.log("Running at port 3000")
 
 });
 
