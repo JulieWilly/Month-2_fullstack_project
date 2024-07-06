@@ -1,12 +1,16 @@
 import "./login.css";
-import { json, Link, Navigate } from "react-router-dom";
+import { json, Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import * as Yup from "yup";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Sign_up = () => {
+
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+
   const formValidations = Yup.object({
     firstName: Yup.string()
       .required("First name is required.")
@@ -29,26 +33,25 @@ const Sign_up = () => {
 
  const handleSubmit = async (values) => {
       try{
+        setLoading(true)
           const createNewUser = await axios
             .post("http://localhost:3000/learn/register",{
               firstName: values.firstName,
               lastName: values.lastName,
               email: values.email,
               password: parseInt(values.password)
-            })
-            .then((response) => console.log(response))
+            })  
             .catch((error) => console.log(error));
-
-          console.log(createNewUser)
+            // setLoading(true)
+               if (createNewUser.status === 200) {
+                 alert("success");
+                 navigate ("/sign_in")
+               }
       }catch(err){
         console.log(err)
       }
-
   }
 
-  useEffect(()=> {
-handleSubmit()
-  },[])
 
   const formik = useFormik({
     initialValues: {
@@ -120,7 +123,7 @@ handleSubmit()
             )}
           </div>
 
-          <button type="submit">Sign in </button>
+          <button type="submit">{loading ? "Signing in ..." : "Sign up"} </button>
 
           <div className="instructions">
             <p>
