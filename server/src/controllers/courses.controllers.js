@@ -10,6 +10,7 @@ export const getAllCourses = async (req, res) => {
         courseDesc: true,
         courseDuration: true,
         courseRating: true,
+        courseCategory:true
       },
     });
 
@@ -52,14 +53,14 @@ export const getSingleCourse = async (req, res) => {
 
 export const createNewCourse = async (req, res) => {
   try {
-    const { courseName, courseDesc, courseDuration, courseRating } = req.body;
-
+    const { courseName, courseDesc, courseDuration, courseRating, courseCategory} = req.body;
     const createCourse = await prisma.courses.create({
       data: {
         courseName,
         courseDesc,
         courseDuration,
         courseRating,
+        courseCategory
       },
     });
 

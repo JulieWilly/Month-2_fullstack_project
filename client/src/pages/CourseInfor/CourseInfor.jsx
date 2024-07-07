@@ -12,6 +12,10 @@ import reviewerImg from "../../assets/curious.jpg";
 import reviwers from "../../data/reviewers.js";
 import Footer from "../../components/Footer.jsx";
 import top_courses from "../../data/top_courses.js";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { API_URL } from "../../utils/config.js";
 
 const User_ratings = ({ rv_img, rv_name, rv_desc, rv_rating }) => {
   return (
@@ -33,6 +37,25 @@ const User_ratings = ({ rv_img, rv_name, rv_desc, rv_rating }) => {
 };
 
 const CourseInfor = () => {
+
+  const {courseId} = useParams();
+  const [courseInfo, setCourseInfo] = useState()
+  console.log('the id',courseId)
+  
+  useEffect(()=> {
+
+    const courseInfo =async () => {
+      try{
+          const getInfor = await axios(`${API_URL}/course/${courseId}`);
+
+          console.log(getInfor)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    courseInfo()
+
+  }, [])
   return (
     <>
       <div className="degreeSect">

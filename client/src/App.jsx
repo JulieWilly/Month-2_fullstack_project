@@ -21,6 +21,8 @@ function App() {
           <Route exact path="/courseInfor" element={<CourseInfor />} />
           <Route exact path="/sign_in" element={<Login />} />
           <Route exact path="/sign_up" element={<Sign_up />} />
+
+          <Route exact path="/course_info/:courseId" element={<CourseInfor/>}/>
         </Routes>
       </BrowserRouter>
     </>

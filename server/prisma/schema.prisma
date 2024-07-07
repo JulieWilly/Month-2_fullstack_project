@@ -26,6 +26,7 @@ model User {
 
 model Courses {
   course_id String @id @default(uuid())
+  courseCategory String @map("course_category")
   courseName String @map("course_name") @unique
   courseDesc String @map("course_desc")
   courseDuration Int @map("course_duration")

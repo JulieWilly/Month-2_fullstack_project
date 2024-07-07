@@ -5,6 +5,7 @@ import SectionTitle from "../../components/SectionTitle";
 import top_courses from "../../data/top_courses";
 import Top_courses from "../../components/Top_Courses";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { API_URL } from "../../utils/config";
 
 const TopCourses = () => {
@@ -21,7 +22,7 @@ const TopCourses = () => {
             console.log(error);
           });
 
-        const courses = fetchCourses.data.data;
+        const courses = fetchCourses.data.data
 
         setCourse(courses);
       } catch (err) {
@@ -38,19 +39,26 @@ const TopCourses = () => {
         <SectionTitle title={"Top courses"} />
 
         <div className="top_courses">
-          {/*  */}
-
-          {course.map((top_course, i) => (
-            <Top_courses
-              course_category={top_course.courseCartegory}
-              course_name={top_course.courseName}
-              course_desc={top_course.courseDesc}
-              course_duration={top_course.courseDuration}
-              course_rating={top_course.courseRating}
-            />
-          ))}
+          {course.length > 0 ? (
+            course.map((top_course, i) => (
+              <Link
+                className="top_courses"
+                to={`/course_info/${top_course.course_id}`}
+              >
+                <Top_courses
+                  id={top_course.course_id}
+                  course_category={top_course.courseCartegory}
+                  course_name={top_course.courseName}
+                  course_desc={top_course.courseDesc}
+                  course_duration={top_course.courseDuration}
+                  course_rating={top_course.courseRating}
+                />
+              </Link>
+            ))
+          ) : (
+            <p>Loading courses ...</p>
+          )}
         </div>
-
         <ViewMore />
       </div>
     </div>
