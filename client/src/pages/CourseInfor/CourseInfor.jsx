@@ -16,6 +16,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config.js";
+import { Link } from "react-router-dom";
 
 const User_ratings = ({ rv_img, rv_name, rv_desc, rv_rating }) => {
   return (
@@ -37,25 +38,40 @@ const User_ratings = ({ rv_img, rv_name, rv_desc, rv_rating }) => {
 };
 
 const CourseInfor = () => {
+  const { courseId } = useParams();
+  const [courseInfo, setCourseInfo] = useState([]);
+  const [relatedCourses, setRelatedCourses] = useState([]);
 
-  const {courseId} = useParams();
-  const [courseInfo, setCourseInfo] = useState([])
-  
-  useEffect(()=> {
-
-    const courseInfo =async () => {
-      try{
-          const getInfor = await axios(`${API_URL}/course/${courseId}`);
-          console.log(getInfor.data.data);
-
-          setCourseInfo(getInfor.data.data);
+  useEffect(() => {
+    const courseInfo = async () => {
+      try {
+        const getInfor = await axios(`${API_URL}/course/${courseId}`);
+        setCourseInfo(getInfor.data.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-    courseInfo()
+    };
+    courseInfo();
+  }, []);
 
-  }, [])
+  useEffect(() => {
+    const fetchRelatedCourses = async () => {
+      try {
+        const fetchCourses = await axios
+          .get(`${API_URL}/course`)
+          .catch((error) => {
+            console.log(error);
+          });
+
+        const courses = fetchCourses.data.data;
+        setRelatedCourses(courses);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchRelatedCourses();
+  }, []);
   return (
     <>
       <div className="degreeSect">
@@ -130,15 +146,27 @@ const CourseInfor = () => {
 
         <SectionTitle title={"Related courses"} />
         <div className="related_courses">
-          {top_courses.map((top_course, i) => (
-            <Top_courses
-              course_img={top_course.courseImg}
-              course_category={top_course.courseCartegory}
-              course_name={top_course.courseName}
-              course_desc={top_course.courseDesc}
-              course_duration={top_course.courseDuration}
-            />
-          ))}
+        
+
+          {relatedCourses.length > 0 ? (
+            relatedCourses.map((top_course, i) => (
+              <Link
+                className="top_courses"
+                to={`/course_info/${top_course.course_id}`}
+              >
+                <Top_courses
+                  id={top_course.course_id}
+                  course_category={top_course.courseCartegory}
+                  course_name={top_course.courseName}
+                  course_desc={top_course.courseDesc}
+                  course_duration={top_course.courseDuration}
+                  course_rating={top_course.courseRating}
+                />
+              </Link>
+            ))
+          ) : (
+            <p>Loading courses ...</p>
+          )}
         </div>
 
         <SectionTitle title={"Course ratings"} />
@@ -146,7 +174,7 @@ const CourseInfor = () => {
           <div className="gen_rating">
             <IoMdStar className="icon" />
             <h3>4.9</h3>
-            <p>(20 reviews)</p>
+            <p>({courseInfo.courseRating} reviews)</p>
           </div>
           <div className="stud_reviews">
             {reviwers.map((reviewer, i) => (
