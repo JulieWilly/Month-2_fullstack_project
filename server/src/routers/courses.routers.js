@@ -5,9 +5,9 @@ const router = Router();
 
 router.post('/add', createNewCourse)
 router.get('/',getAllCourses )
-router.get('/:id',getSingleCourse)
+router.get("/:course_id",getSingleCourse)
 
-router.patch('/:id',updateCourse )
+router.patch("/:id",updateCourse )
 
 
 router.delete('/:id',deleteCourse )
