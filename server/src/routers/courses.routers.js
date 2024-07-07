@@ -9,12 +9,6 @@ import {
 
 const router = Router();
 
-router.post("/add", createNewCourse);
-router.get("/", getAllCourses);
-router.get("/:course_id", getSingleCourse);
-
-router.patch("/:course_id", updateCourse);
-
-router.delete("/:course_id", deleteCourse);
+router.post("/add", createNewCourse).get("/", getAllCourses).get("/:course_id", getSingleCourse).patch("/:course_id", updateCourse).delete("/:course_id", deleteCourse);
 
 export default router;

@@ -34,3 +34,14 @@ model Courses {
 
   @@map("courses_tb")
 }
+
+model Degrees {
+  degree_id String @id @default(uuid())
+  degreeName String @map("course_name") @unique
+  degreeDesc String @map("course_desc")
+  degreeDuration Int @map("course_duration")
+  degreeRating Int @map("course_rating") 
+  previousPrice Int @map("previous_price")
+  currentPrice Int @map("current_price")
+  @@map("degrees_tb")
+}
