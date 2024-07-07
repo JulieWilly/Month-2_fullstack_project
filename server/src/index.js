@@ -5,6 +5,8 @@ import degreesRouter from "./routers/degrees.routers.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
+import tutorsRouter from './routers/tutors.routers.js'
+import reviewersRouter from './routers/reviewers.routers.js'
 
 
 config();
@@ -27,6 +29,8 @@ great_tutor.use(express.json());
 great_tutor.use("/learn", userRouter);
 great_tutor.use("/course", coursesRouter);
 great_tutor.use("/degree", degreesRouter)
+great_tutor.use('/reviewer', reviewersRouter)
+great_tutor.use('/tutor',tutorsRouter)
 
 great_tutor.listen(3000, () => {
   console.log("Running at port 3000");

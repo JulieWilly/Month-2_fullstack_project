@@ -45,3 +45,21 @@ model Degrees {
   currentPrice Int @map("current_price")
   @@map("degrees_tb")
 }
+
+
+model Reviewers{
+  reviewer_id String @id @default(uuid())
+  reviewerName String @map("reviewer_name")
+  reviewerComment String @map("reviewer_comment")
+
+  @@map("reviewers_tb")
+}
+
+model Tutors{
+  tutors_id String @id @default(uuid())
+  tutorsName String @map("tutors_name")
+  tutorsDesc String @map("tutors_desc")
+  tutorsCourses String @map("tutors_courses")
+
+  @@map("tutors_tb")
+}
