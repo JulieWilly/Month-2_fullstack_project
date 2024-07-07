@@ -56,9 +56,19 @@ export const createNewCourse = async (req, res) => {
 }
 
 export const updateCourse = async (req, res) => {
-    res.send("Update an existing course.")
+   
 }
 
-export const deleteCourse = (req, res) => {
-    res.send("Delete a course")
+export const deleteCourse = async (req, res) => {
+try{
+   const id = req.params.course_id;
+
+   const deleteCourse = await prisma.courses.delete({
+    where: {course_id: id}
+   })
+
+   res.status(200).json({success: true, message: 'Product deleted successfully.', data: deleteCourse})
+} catch (error) {
+    res.status(500).json({success:false, message: "Product not found. Product already deleted."})
+}
 }

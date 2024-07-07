@@ -7,10 +7,10 @@ router.post('/add', createNewCourse)
 router.get('/',getAllCourses )
 router.get("/:course_id",getSingleCourse)
 
-router.patch("/:id",updateCourse )
+router.patch("/:course_id",updateCourse )
 
 
-router.delete('/:id',deleteCourse )
+router.delete("/:course_id",deleteCourse )
 
 
 export default router;
