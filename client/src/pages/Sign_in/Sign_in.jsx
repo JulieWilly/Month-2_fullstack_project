@@ -66,7 +66,6 @@ const Login = () => {
     <div className="sign_in_sect">
       <h1>Sing in to your account</h1>
       <p className="welcome">Welcome back</p>
-
       <div className="inputs">
         <form action="post" onSubmit={formik.handleSubmit}>
           <div className="login">
