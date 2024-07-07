@@ -1,5 +1,6 @@
 import express from 'express'
 import userRouter from './routers/users.routers.js'
+import coursesRouter from './routers/courses.routers.js'
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
@@ -21,6 +22,7 @@ great_tutor.use(express.urlencoded({ extended:true }))
 great_tutor.use(express.json())
 
 great_tutor.use("/learn", userRouter)
+great_tutor.use("/course", coursesRouter)
 
 
 great_tutor.listen(3000, () => {

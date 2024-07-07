@@ -23,3 +23,13 @@ model User {
 
   @@map("students_tb")
 }
+
+model Courses {
+  course_id String @id @default(uuid())
+  courseName String @map("course_name") @unique
+  courseDesc String @map("course_desc")
+  courseDuration Int @map("course_duration")
+  courseRating Int @map("course_rating") 
+
+  @@map("courses_tb")
+}
