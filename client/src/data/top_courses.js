@@ -1,4 +1,5 @@
 import inforTechImg from "../assets/it.jpg";
+// import axios from "axios";
 
 const top_courses = [
   {

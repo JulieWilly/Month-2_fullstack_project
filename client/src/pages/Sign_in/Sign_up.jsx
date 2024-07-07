@@ -8,10 +8,9 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/config";
 
 const Sign_up = () => {
-
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState()
-  const navigate = useNavigate()
+  const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const formValidations = Yup.object({
     firstName: Yup.string()
@@ -29,35 +28,34 @@ const Sign_up = () => {
       .typeError("Password must be a number")
       .integer("Password must be a number")
       .required("Password is reqired.")
-      .min(4, "Password should not be less than 4 numbers")
+      .min(4, "Password should not be less than 4 numbers"),
   });
 
-//  const url = import.meta.env.VITE_URL_BASE;
- const handleSubmit = async (values) => {
-      try{
-        setLoading(true)
-          const createNewUser = await axios
-            .post(`${API_URL}/learn/register`, {
-              firstName: values.firstName,
-              lastName: values.lastName,
-              email: values.email,
-              password:(values.password)
-            })
-            .catch((error) => console.log(error));
-               if (createNewUser.status === 200) {
-                 alert("success");
-                 navigate ("/sign_in")
-               } else {
-                setError(createNewUser.data)
-               }
-      }catch(err){
-        console.log(err)
-        setError(err.message)
-      }finally{
-        setLoading(true)
+  //  const url = import.meta.env.VITE_URL_BASE;
+  const handleSubmit = async (values) => {
+    try {
+      setLoading(true);
+      const createNewUser = await axios
+        .post(`${API_URL}/learn/register`, {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          password: values.password,
+        })
+        .catch((error) => console.log(error));
+      if (createNewUser.status === 200) {
+        alert("success");
+        navigate("/sign_in");
+      } else {
+        setError(createNewUser.data);
       }
-  }
-
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    } finally {
+      setLoading(true);
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -129,7 +127,9 @@ const Sign_up = () => {
             )}
           </div>
 
-          <button type="submit">{loading ? "Signing in ..." : "Sign up"} </button>
+          <button type="submit">
+            {loading ? "Signing in ..." : "Sign up"}{" "}
+          </button>
 
           <div className="instructions">
             <p>

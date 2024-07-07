@@ -6,6 +6,7 @@ const Top_courses = ({
   course_name,
   course_desc,
   course_duration,
+  course_rating,
 }) => {
   return (
     <>
@@ -21,7 +22,7 @@ const Top_courses = ({
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>({course_rating})
             </div>
           </div>
           <h2>{course_name}</h2>

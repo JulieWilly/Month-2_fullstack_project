@@ -1,25 +1,25 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 export const validateUser = (req, res, next) => {
-   const {firstName,lastName, email, password} = req.body
+  const { firstName, lastName, email, password } = req.body;
 
-       if (!firstName || !lastName || !email || !password) {
-            res.send("Please provide all the fields required.")
-        }
-        
-        // check if email is alreadytaken.
-        try{
-            
-            const checkMail = prisma.user.findFirst({
-                where: { email: email=email}
-            })
+  if (!firstName || !lastName || !email || !password) {
+    res.send("Please provide all the fields required.");
+  }
 
-            if (checkMail){
-                res.status(400).json({success:false, message: "email already taken."})
-            } 
-        }catch(e) { res.status(500).json({success:false, message: "Internal sever error"})}
+  // check if email is alreadytaken.
+  try {
+    const checkMail = prisma.user.findFirst({
+      where: { email: (email = email) },
+    });
 
-        next()
-}
+    if (checkMail) {
+      res.status(400).json({ success: false, message: "email already taken." });
+    }
+  } catch (e) {
+    res.status(500).json({ success: false, message: "Internal sever error" });
+  }
+
+  next();
+};

@@ -2,17 +2,16 @@ import "./login.css";
 import { FaGoogle } from "react-icons/fa";
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
 import { FaFacebookF } from "react-icons/fa";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 const Login = () => {
-  const [loading, setLoading ] = useState()
-  const [error, setError] = useState()
-  const navigate = useNavigate()
-
+  const [loading, setLoading] = useState();
+  const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const formValidationShema = Yup.object({
     email: Yup.string()
@@ -23,35 +22,36 @@ const Login = () => {
       .required("Password is required."),
   });
 
+  const handleSubmit = async (values) => {
+    try {
+      setLoading(true);
+      setError(false);
 
-  const handleSubmit = async(values) => {
-    try{
-      setLoading(true)
-      setError(false)
+      const authUser = await axios
+        .post(
+          `${API_URL}/learn/login`,
+          {
+            email: values.email,
+            password: values.password,
+          },
+          {
+            withCredentials: true,
+          },
+        )
+        .catch((error) => console.log(error));
 
-      const authUser = await axios.post(`${API_URL}/learn/login`, {
-        email:values.email,
-        password: values.password
-      },
-      {
-        withCredentials:true
-      }
-    ).catch(error => console.log(error))
-
-      if(authUser.status === 200) {
-        alert("Login successful")
-        navigate('/')
+      if (authUser.status === 200) {
+        alert("Login successful");
+        navigate("/");
       } else {
-        alert("Something went wrong!!")
+        alert("Something went wrong!!");
       }
-
-    } catch(err) {
-      setError(err.message)
-
-    }finally{
-      setLoading(false)
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-  }
+  };
   // initialize useFormik and the initial values.
   const formik = useFormik({
     initialValues: {
@@ -59,8 +59,8 @@ const Login = () => {
       password: "",
     },
     validationSchema: formValidationShema,
-    
-    onSubmit: handleSubmit
+
+    onSubmit: handleSubmit,
   });
   return (
     <div className="sign_in_sect">
@@ -78,7 +78,9 @@ const Login = () => {
               onBlur={formik.handleBlur}
             />
 
-            {formik.touched.email && formik.errors.email && <p>{formik.errors.email}</p>}
+            {formik.touched.email && formik.errors.email && (
+              <p>{formik.errors.email}</p>
+            )}
           </div>
           <div className="login">
             <input
@@ -90,7 +92,9 @@ const Login = () => {
               onBlur={formik.handleBlur}
             />
 
-            { formik.touched.password && formik.errors.password && <p>{formik.errors.password}</p>}
+            {formik.touched.password && formik.errors.password && (
+              <p>{formik.errors.password}</p>
+            )}
           </div>
 
           <button>Sign in </button>
