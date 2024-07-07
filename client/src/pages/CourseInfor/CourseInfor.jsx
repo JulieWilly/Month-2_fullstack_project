@@ -46,9 +46,9 @@ const CourseInfor = () => {
     const courseInfo =async () => {
       try{
           const getInfor = await axios(`${API_URL}/course/${courseId}`);
+          console.log(getInfor.data.data);
 
           setCourseInfo(getInfor.data.data);
-        // console.log(typeof(getInfor.data.data))
       } catch (error) {
         console.log(error)
       }
@@ -60,59 +60,57 @@ const CourseInfor = () => {
     <>
       <div className="degreeSect">
         <TopNavigation />
-        {
-        courseInfo.map((course_info, i) => (
-          <div className="course_desc">
-            <div className="course_infor">
-              <h1>{course_info.courseName}</h1>
-              <h3>Course desc</h3>
 
-              <p>3 Months</p>
+        <div className="course_desc">
+          <div className="course_infor">
+            <h1>{courseInfo.courseName}</h1>
+            <h3>{courseInfo.courseDesc}</h3>
 
-              <div className="price">
-                <MdOutlineAttachMoney className="icon" />
-                <h3>12/= </h3>
-              </div>
+            <p>{courseInfo.courseDuration} Months</p>
 
-              <div className="certificate">
-                <LiaCertificateSolid className="icon" />
-                <p>Earn a certificate upon completion </p>
-              </div>
-
-              <p className="content">Course Content</p>
-              <div className="course_content">
-                <div className="lesson">
-                  <IoCheckmark />
-                  <p>lesson 1</p>
-                </div>
-                <div className="lesson">
-                  <IoCheckmark />
-                  <p>lesson 1</p>
-                </div>{" "}
-                <div className="lesson">
-                  <IoCheckmark />
-                  <p>lesson 1</p>
-                </div>{" "}
-                <div className="lesson">
-                  <IoCheckmark />
-                  <p>lesson 1</p>
-                </div>{" "}
-                <div className="lesson">
-                  <IoCheckmark />
-                  <p>lesson 1</p>
-                </div>
-              </div>
+            <div className="price">
+              <MdOutlineAttachMoney className="icon" />
+              <h3>12/= </h3>
             </div>
-            <div className="start_course">
-              <div className="img">
-                <img src={reviewerImg} alt="" />
-              </div>
 
-              <button>Pay for access</button>
-              <button>Start Learning</button>
+            <div className="certificate">
+              <LiaCertificateSolid className="icon" />
+              <p>Earn a certificate upon completion </p>
+            </div>
+
+            <p className="content">Course Content</p>
+            <div className="course_content">
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>{" "}
+              <div className="lesson">
+                <IoCheckmark />
+                <p>lesson 1</p>
+              </div>
             </div>
           </div>
-        ))}
+          <div className="start_course">
+            <div className="img">
+              <img src={reviewerImg} alt="" />
+            </div>
+
+            <button>Pay for access</button>
+            <button>Start Learning</button>
+          </div>
+        </div>
 
         <SectionTitle title={"Course Tutors"} />
         <div className="tutors">
