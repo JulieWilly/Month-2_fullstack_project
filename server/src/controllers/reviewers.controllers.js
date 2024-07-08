@@ -8,7 +8,8 @@ export const getAllReviewers = async (req, res) => {
       select: {
         reviewer_id:true,
         reviewerName:true,
-        reviewerComment:true
+        reviewerComment:true,
+        reviewerRating:true
       },
     });
 
@@ -52,10 +53,10 @@ export const getSingleReviewer = async (req, res) => {
 
 export const createNewReviewer = async (req, res) => {
     try {
-    const { reviewerName, reviewerComment} = req.body;
+    const { reviewerName, reviewerComment, reviewerRating} = req.body;
     const createReviewer = await prisma.reviewers.create({
       data: {
-        reviewerName, reviewerComment
+        reviewerName, reviewerComment, reviewerRating
       },
     });
 

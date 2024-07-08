@@ -12,12 +12,13 @@
 }
 
 .learn_sect {
+  flex-wrap: wrap;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   padding: 0;
 }
 .lessons {
-  width: 50%;
+  width: 40%;
 }
 
 .Lesson_1 {
@@ -44,7 +45,7 @@
 }
 
 .learn {
-  width: 80%;
+  width: 55%;
 }
 
 .disp_img {

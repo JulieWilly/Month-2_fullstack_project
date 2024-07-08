@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/sign_up" element={<Sign_up />} />
 
           <Route exact path="/course_info/:courseId" element={<CourseInfor/>}/>
+          <Route exact path="contact_us/:courseId" element={<Contact/>}/>
         </Routes>
       </BrowserRouter>
     </>

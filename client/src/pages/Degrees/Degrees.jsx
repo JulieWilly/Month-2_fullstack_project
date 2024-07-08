@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./degrees.css";
 import Banner from "../../components/Banner";
 import SectionTitle from "../../components/SectionTitle";
@@ -8,6 +8,9 @@ import degree_programs from "../../data/degree_programs";
 import ViewMore from "../../components/ViewMore";
 import AdverBanner from "./AdvertBanner";
 import Footer from "../../components/Footer";
+import axios from 'axios'
+import {API_URL} from '../../utils/config'
+
 const Degree_programs_card = ({
   dg_img,
   dg_name,
@@ -51,6 +54,20 @@ const Degree_programs_card = ({
   );
 };
 const Degrees = () => {
+
+  const [degrees, setDegrees] = useState([]);
+
+  useEffect(()=> {
+    const fetchDegrees = async () => {
+     try{
+        const getDegrees = await axios.get(`${API_URL}/degree`);
+        setDegrees(getDegrees.data.data);
+     } catch(error) {
+      console.log(error)
+     }
+    }
+    fetchDegrees();
+  },[])
   return (
     <div>
       <Banner
@@ -102,15 +119,16 @@ const Degrees = () => {
         <div className="programs">
           <SectionTitle title={"Our Degree programs"} />
           <div className="dg_programs">
-            {degree_programs.map((programs, i) => (
+            {degrees.map((programs, i) => (
               <Degree_programs_card
+                key={i}
                 dg_img={programs.dgImg}
-                dg_name={programs.dgName}
-                dg_desc={programs.dgDesc}
-                dg_prev_price={programs.dgPrevPrice}
-                dg_period={programs.dgPeriod}
-                dg_cur_price={programs.dgCurPrice}
-                dg_rating={programs.dgRating}
+                dg_name={programs.degreeName}
+                dg_desc={programs.degreeDesc}
+                dg_prev_price={programs.previousPrice}
+                dg_period={programs.degreeDuration}
+                dg_cur_price={programs.currentPrice}
+                dg_rating={programs.degreeRating}
               />
             ))}
           </div>

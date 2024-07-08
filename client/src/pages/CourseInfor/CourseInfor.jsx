@@ -12,7 +12,7 @@ import reviewerImg from "../../assets/curious.jpg";
 import reviwers from "../../data/reviewers.js";
 import Footer from "../../components/Footer.jsx";
 import top_courses from "../../data/top_courses.js";
-import { useParams } from "react-router-dom";
+import { useAsyncError, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config.js";
@@ -41,21 +41,30 @@ const CourseInfor = () => {
   const { courseId } = useParams();
   const [courseInfo, setCourseInfo] = useState([]);
   const [relatedCourses, setRelatedCourses] = useState([]);
+  const [tutor, setTutor] = useState([]);
+  const [loading, setLoading] = useState();
+  const [error, setError] = useState();
+  const [reviewer, setReviewer] = useState([]);
 
-  useEffect(() => {
-    const courseInfo = async () => {
+    const courseInfor = async () => {
+      setLoading(true);
+      setError(false);
       try {
         const getInfor = await axios(`${API_URL}/course/${courseId}`);
         setCourseInfo(getInfor.data.data);
       } catch (error) {
         console.log(error);
+        setError(error)
+      } finally{
+        setLoading(false)
       }
     };
-    courseInfo();
-  }, []);
+ 
 
-  useEffect(() => {
+
     const fetchRelatedCourses = async () => {
+      setLoading(true);
+      setError(false);
       try {
         const fetchCourses = await axios
           .get(`${API_URL}/course`)
@@ -67,11 +76,53 @@ const CourseInfor = () => {
         setRelatedCourses(courses);
       } catch (error) {
         console.log(error);
+        setError(error)
+      } finally{
+        setLoading(false)
       }
     };
 
+
+
+
+    const fetchTutors = async () => {
+      setLoading(true);
+      setError(false);
+      try {
+        const getTutors = await axios.get(`${API_URL}/tutor`);
+
+        const result = getTutors.data.data;
+        setTutor(result);
+      } catch (error) {
+        console.log(error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchReviwers = async () => {
+      setLoading(true)
+      setError(false)
+      try{
+
+        const getReviwers = await axios.get(`${API_URL}/reviewer`);
+        setReviewer(getReviwers.data.data)
+      } catch(error) {
+        console.log(error)
+        setError(error)
+      } finally{
+        setLoading(false)
+      }
+    }
+
+    useEffect(()=> {
     fetchRelatedCourses();
-  }, []);
+    courseInfor();
+    fetchTutors();
+    fetchReviwers()
+    },[])
+
   return (
     <>
       <div className="degreeSect">
@@ -124,13 +175,15 @@ const CourseInfor = () => {
             </div>
 
             <button>Pay for access</button>
-            <button>Start Learning</button>
+            <Link to={`/contact_us/${courseInfo.course_id}`}>
+              <button>Start Learning</button>
+            </Link>
           </div>
         </div>
 
         <SectionTitle title={"Course Tutors"} />
         <div className="tutors">
-          {tutors.map((tutors, i) => (
+          {tutor.map((tutors, i) => (
             <Tutors_
               tutors_img={tutors.tutorsImg}
               tutors_name={tutors.tutorsName}
@@ -146,8 +199,6 @@ const CourseInfor = () => {
 
         <SectionTitle title={"Related courses"} />
         <div className="related_courses">
-        
-
           {relatedCourses.length > 0 ? (
             relatedCourses.map((top_course, i) => (
               <Link
@@ -177,12 +228,12 @@ const CourseInfor = () => {
             <p>({courseInfo.courseRating} reviews)</p>
           </div>
           <div className="stud_reviews">
-            {reviwers.map((reviewer, i) => (
+            {reviewer.map((reviewer, i) => (
               <User_ratings
                 rv_img={reviewer.img}
-                rv_name={reviewer.name}
-                rv_desc={reviewer.desc}
-                rv_rating={reviewer.rating}
+                rv_name={reviewer.reviewerName}
+                rv_desc={reviewer.reviewerComment}
+                rv_rating={reviewer.reviewerRating}
               />
             ))}
           </div>

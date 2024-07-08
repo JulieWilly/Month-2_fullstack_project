@@ -39,10 +39,9 @@ const Top_courses = ({
               <p className="duration">({course_duration}) Months</p>
             </div>
             <div className="bottom">
-              <p>More Infor</p>
-              <Link to="/contact_us">
-                <button type="submit">Apply</button>
-              </Link>
+              
+                <button type="submit">More Infor</button>
+          
             </div>
           </div>
 

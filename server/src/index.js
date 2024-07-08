@@ -7,11 +7,30 @@ import bodyParser from "body-parser";
 import { config } from "dotenv";
 import tutorsRouter from './routers/tutors.routers.js'
 import reviewersRouter from './routers/reviewers.routers.js'
+import multer from 'multer'
+import path from 'path'
 
 
 config();
 const great_tutor = express();
 
+// const multer = multer.diskStorage({
+//   destination:(req, file,cb) => {
+//     cb(null, "Images")
+//   },
+//   fileName:(req, file, cb) => {
+//     console.log(file);
+//     cb(null, Date.now() + path.extname(file.originalname))
+//   }
+// }
+// )
+
+// const upload = multer({ storage:storage})
+
+
+// great_tutor.get("/upload", (req, res) => {
+//   res.render("upload")
+// })
 great_tutor.use(
   cors({
     origin: " http://localhost:5173",
