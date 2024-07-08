@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../../utils/config";
 
 const TopCourses = () => {
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  // const [loading, setLoading] = useState();
+  // const [error, setError] = useState();
   const [course, setCourse] = useState([]);
 
   useEffect(() => {
@@ -58,6 +58,7 @@ const TopCourses = () => {
           ) : (
             <p>Loading courses ...</p>
           )}
+          
         </div>
         <ViewMore />
       </div>

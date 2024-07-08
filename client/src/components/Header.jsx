@@ -18,12 +18,12 @@ const Header = () => {
       <NavLinks />
 
       <div className="signUp_signIn">
-        <Link to={"/sign_in"}>
-          <button>Sign in </button>
+        <Link to={"/"}>
+          {/* <button>Sign in </button> */}
         </Link>
 
         <Link to={"/sign_up"}>
-          <button>Sign up</button>
+          {/* <button>Sign up</button> */}
         </Link>
       </div>
     </div>

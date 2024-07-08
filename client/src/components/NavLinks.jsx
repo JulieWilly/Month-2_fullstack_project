@@ -5,7 +5,7 @@ const NavLinks = () => {
     <nav>
       <ul>
         <li>
-          <Link className="link" to={"/"}>
+          <Link className="link" to={"/home"}>
             {" "}
             Home
           </Link>
@@ -17,10 +17,10 @@ const NavLinks = () => {
         </li>
         <li>
           <Link className="link" to={"/about_us"}>
-            About us
+            Create a new course
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link className="link" to={"/contact_us"}>
             Contact us
           </Link>
@@ -29,7 +29,7 @@ const NavLinks = () => {
           <Link className="link" to={"/courseInfor"}>
             Course Infor
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

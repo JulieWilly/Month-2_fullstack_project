@@ -45,7 +45,7 @@ const Sign_up = () => {
         .catch((error) => console.log(error));
       if (createNewUser.status === 200) {
         alert("success");
-        navigate("/sign_in");
+        navigate("/");
       } else {
         setError(createNewUser.data);
       }
@@ -134,7 +134,7 @@ const Sign_up = () => {
           <div className="instructions">
             <p>
               Already on <span>Great tutors?</span>{" "}
-              <Link to={"/sign_in"}>Sing in</Link>
+              <Link to={"/"}>Sing in</Link>
             </p>
           </div>
           {error && <p>{error}</p>}

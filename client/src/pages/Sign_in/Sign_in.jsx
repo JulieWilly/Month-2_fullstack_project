@@ -42,7 +42,7 @@ const Login = () => {
 
       if (authUser.status === 200) {
         alert("Login successful");
-        navigate("/");
+        navigate("/home");
       } else {
         alert("Something went wrong!!");
       }

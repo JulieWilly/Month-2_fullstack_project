@@ -119,7 +119,9 @@ const Degrees = () => {
         <div className="programs">
           <SectionTitle title={"Our Degree programs"} />
           <div className="dg_programs">
-            {degrees.map((programs, i) => (
+            {
+              degrees.length > 0 ? (
+                degrees.map((programs, i) => (
               <Degree_programs_card
                 key={i}
                 dg_img={programs.dgImg}
@@ -130,7 +132,12 @@ const Degrees = () => {
                 dg_cur_price={programs.currentPrice}
                 dg_rating={programs.degreeRating}
               />
-            ))}
+            ))
+              ):(
+                <p>Loading data ....... </p>
+              )
+            }
+          
           </div>
         </div>
         <ViewMore />

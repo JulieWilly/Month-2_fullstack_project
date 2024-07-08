@@ -45,7 +45,7 @@ const About = () => {
 
       if (createNewCourse.status == 200) {
         alert("course created successfully");
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       console.log(error);
