@@ -22,7 +22,7 @@ const TopCourses = () => {
             console.log(error);
           });
 
-        const courses = fetchCourses.data.data
+        const courses = fetchCourses.data.data;
 
         setCourse(courses);
       } catch (err) {
@@ -58,7 +58,6 @@ const TopCourses = () => {
           ) : (
             <p>Loading courses ...</p>
           )}
-          
         </div>
         <ViewMore />
       </div>

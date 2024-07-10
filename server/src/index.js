@@ -5,32 +5,14 @@ import degreesRouter from "./routers/degrees.routers.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
-import tutorsRouter from './routers/tutors.routers.js'
-import reviewersRouter from './routers/reviewers.routers.js'
-import multer from 'multer'
-import path from 'path'
-
+import tutorsRouter from "./routers/tutors.routers.js";
+import reviewersRouter from "./routers/reviewers.routers.js";
+import cookieParser from 'cookie-parser'
 
 config();
 const great_tutor = express();
 
-// const multer = multer.diskStorage({
-//   destination:(req, file,cb) => {
-//     cb(null, "Images")
-//   },
-//   fileName:(req, file, cb) => {
-//     console.log(file);
-//     cb(null, Date.now() + path.extname(file.originalname))
-//   }
-// }
-// )
 
-// const upload = multer({ storage:storage})
-
-
-// great_tutor.get("/upload", (req, res) => {
-//   res.render("upload")
-// })
 great_tutor.use(
   cors({
     origin: " http://localhost:5173",
@@ -39,6 +21,8 @@ great_tutor.use(
     //  allowedHeaders: ["Content-Type", "Authorization"]
   }),
 );
+ great_tutor.use(cookieParser());
+
 great_tutor.use(bodyParser.json());
 
 great_tutor.use(express.urlencoded({ extended: true }));
@@ -47,9 +31,9 @@ great_tutor.use(express.json());
 
 great_tutor.use("/learn", userRouter);
 great_tutor.use("/course", coursesRouter);
-great_tutor.use("/degree", degreesRouter)
-great_tutor.use('/reviewer', reviewersRouter)
-great_tutor.use('/tutor',tutorsRouter)
+great_tutor.use("/degree", degreesRouter);
+great_tutor.use("/reviewer", reviewersRouter);
+great_tutor.use("/tutor", tutorsRouter);
 
 great_tutor.listen(3000, () => {
   console.log("Running at port 3000");

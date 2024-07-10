@@ -20,6 +20,7 @@ model User {
   lastName String @map("last_name") 
   email String @map("email") @unique
   password String @map("password")
+  courses Courses[]
 
   @@map("students_tb")
 }
@@ -31,6 +32,10 @@ model Courses {
   courseDesc String @map("course_desc")
   courseDuration Int @map("course_duration")
   courseRating Int @map("course_rating") 
+  user_id String 
+
+
+  user User @relation(fields: [user_id], references: [id])
 
   @@map("courses_tb")
 }

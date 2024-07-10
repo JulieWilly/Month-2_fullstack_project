@@ -10,17 +10,15 @@ export const getAllCourses = async (req, res) => {
         courseDesc: true,
         courseDuration: true,
         courseRating: true,
-        courseCategory:true
+        courseCategory: true,
       },
     });
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Data found successfully",
-        data: getCourses,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Data found successfully",
+      data: getCourses,
+    });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -38,13 +36,11 @@ export const getSingleCourse = async (req, res) => {
         .status(500)
         .json({ success: false, message: "Course not found, Invalid ID" });
     } else {
-      res
-        .status(200)
-        .json({
-          sucess: true,
-          message: "Product found sucessfully",
-          data: findSingleCourse,
-        });
+      res.status(200).json({
+        sucess: true,
+        message: "Product found sucessfully",
+        data: findSingleCourse,
+      });
     }
   } catch (e) {
     res.status(500).json({ success: false, message: e.message });
@@ -52,25 +48,37 @@ export const getSingleCourse = async (req, res) => {
 };
 
 export const createNewCourse = async (req, res) => {
+    const user = req.user;
+  const userID = user.id
+
+  console.log('1-.',user)
+  console.log('2-.',userID)
   try {
-    const { courseName, courseDesc, courseDuration, courseRating, courseCategory} = req.body;
+    const {
+      courseName,
+      courseDesc,
+      courseDuration,
+      courseRating,
+      courseCategory,
+    } = req.body;
+
+
     const createCourse = await prisma.courses.create({
       data: {
         courseName,
         courseDesc,
         courseDuration,
         courseRating,
-        courseCategory
+        courseCategory,
+        user_id: userID
       },
     });
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Course created successfully.",
-        data: createCourse,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Course created successfully.",
+      data: createCourse,
+    });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -86,19 +94,15 @@ export const deleteCourse = async (req, res) => {
       where: { course_id: id },
     });
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Product deleted successfully.",
-        data: deleteCourse,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Product deleted successfully.",
+      data: deleteCourse,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Product not found. Product already deleted.",
-      });
+    res.status(500).json({
+      success: false,
+      message: "Product not found. Product already deleted.",
+    });
   }
 };

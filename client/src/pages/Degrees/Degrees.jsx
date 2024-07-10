@@ -8,8 +8,8 @@ import degree_programs from "../../data/degree_programs";
 import ViewMore from "../../components/ViewMore";
 import AdverBanner from "./AdvertBanner";
 import Footer from "../../components/Footer";
-import axios from 'axios'
-import {API_URL} from '../../utils/config'
+import axios from "axios";
+import { API_URL } from "../../utils/config";
 
 const Degree_programs_card = ({
   dg_img,
@@ -54,20 +54,20 @@ const Degree_programs_card = ({
   );
 };
 const Degrees = () => {
-
   const [degrees, setDegrees] = useState([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchDegrees = async () => {
-     try{
+      try {
         const getDegrees = await axios.get(`${API_URL}/degree`);
+        
         setDegrees(getDegrees.data.data);
-     } catch(error) {
-      console.log(error)
-     }
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchDegrees();
-  },[])
+  }, []);
   return (
     <div>
       <Banner
@@ -119,25 +119,22 @@ const Degrees = () => {
         <div className="programs">
           <SectionTitle title={"Our Degree programs"} />
           <div className="dg_programs">
-            {
-              degrees.length > 0 ? (
-                degrees.map((programs, i) => (
-              <Degree_programs_card
-                key={i}
-                dg_img={programs.dgImg}
-                dg_name={programs.degreeName}
-                dg_desc={programs.degreeDesc}
-                dg_prev_price={programs.previousPrice}
-                dg_period={programs.degreeDuration}
-                dg_cur_price={programs.currentPrice}
-                dg_rating={programs.degreeRating}
-              />
-            ))
-              ):(
-                <p>Loading data ....... </p>
-              )
-            }
-          
+            {degrees.length > 0 ? (
+              degrees.map((programs, i) => (
+                <Degree_programs_card
+                  key={i}
+                  dg_img={programs.dgImg}
+                  dg_name={programs.degreeName}
+                  dg_desc={programs.degreeDesc}
+                  dg_prev_price={programs.previousPrice}
+                  dg_period={programs.degreeDuration}
+                  dg_cur_price={programs.currentPrice}
+                  dg_rating={programs.degreeRating}
+                />
+              ))
+            ) : (
+              <p>Loading data ....... </p>
+            )}
           </div>
         </div>
         <ViewMore />

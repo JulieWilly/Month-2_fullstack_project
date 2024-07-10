@@ -44,7 +44,7 @@ const Sign_up = () => {
         })
         .catch((error) => console.log(error));
       if (createNewUser.status === 200) {
-        alert("success");
+        alert("Sign up successful");
         navigate("/");
       } else {
         setError(createNewUser.data);

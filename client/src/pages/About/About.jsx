@@ -36,7 +36,10 @@ const About = () => {
           courseDesc: values.courseDesc,
           courseDuration: values.courseDuration,
           courseRating: values.courseRating,
-        })
+        },
+      {
+        withCredentials:true
+      })
         .catch((error) => {
           setError(error);
         });

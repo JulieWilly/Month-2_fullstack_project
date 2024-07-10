@@ -46,82 +46,78 @@ const CourseInfor = () => {
   const [error, setError] = useState();
   const [reviewer, setReviewer] = useState([]);
 
-    const courseInfor = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const getInfor = await axios(`${API_URL}/course/${courseId}`);
-        setCourseInfo(getInfor.data.data);
-      } catch (error) {
-        console.log(error);
-        setError(error)
-      } finally{
-        setLoading(false)
-      }
-    };
- 
-
-
-    const fetchRelatedCourses = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const fetchCourses = await axios
-          .get(`${API_URL}/course`)
-          .catch((error) => {
-            console.log(error);
-          });
-
-        const courses = fetchCourses.data.data;
-        setRelatedCourses(courses);
-      } catch (error) {
-        console.log(error);
-        setError(error)
-      } finally{
-        setLoading(false)
-      }
-    };
-
-
-
-
-    const fetchTutors = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const getTutors = await axios.get(`${API_URL}/tutor`);
-
-        const result = getTutors.data.data;
-        setTutor(result);
-      } catch (error) {
-        console.log(error);
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    const fetchReviwers = async () => {
-      setLoading(true)
-      setError(false)
-      try{
-
-        const getReviwers = await axios.get(`${API_URL}/reviewer`);
-        setReviewer(getReviwers.data.data)
-      } catch(error) {
-        console.log(error)
-        setError(error)
-      } finally{
-        setLoading(false)
-      }
+  const courseInfor = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const getInfor = await axios(`${API_URL}/course/${courseId}`, {
+        withCredentials: true
+      });
+      setCourseInfo(getInfor.data.data);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    } finally {
+      setLoading(false);
     }
+  };
 
-    useEffect(()=> {
+  const fetchRelatedCourses = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const fetchCourses = await axios
+        .get(`${API_URL}/course`)
+        .catch((error) => {
+          console.log(error);
+        });
+
+      const courses = fetchCourses.data.data;
+      setRelatedCourses(courses);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchTutors = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const getTutors = await axios.get(`${API_URL}/tutor`);
+
+      const result = getTutors.data.data;
+      setTutor(result);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchReviwers = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const getReviwers = await axios.get(`${API_URL}/reviewer`);
+      setReviewer(getReviwers.data.data);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchRelatedCourses();
     courseInfor();
     fetchTutors();
-    fetchReviwers()
-    },[])
+    fetchReviwers();
+  }, []);
 
   return (
     <>

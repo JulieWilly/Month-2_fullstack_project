@@ -17,13 +17,11 @@ export const createNewUser = async (req, res) => {
         password: hashedPassword,
       },
     });
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "The user has been created successfully",
-        data: createUser,
-      });
+    res.status(200).json({
+      success: true,
+      message: "The user has been created successfully",
+      data: createUser,
+    });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -52,11 +50,12 @@ export const loginUser = async (req, res) => {
 
         // generate a json web token for authorization purposes
         const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, {
-          expiresIn: "10m",
+          expiresIn: "20m",
         });
 
         // attach the toke to a cookie. This is to a void manually adding the token to functions.
         res.cookie("access_token", token);
+        
         res.status(200).json({ success: true, data: payload });
       } else {
         res
@@ -72,3 +71,8 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ success: false, message: err.message });
   }
 };
+
+
+export const getUserName = async (req, res) => {
+  res.send("dksdjksdjksdjk")
+}
